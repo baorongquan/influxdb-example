@@ -1,4 +1,4 @@
-package main
+package connect
 
 import (
 	"github.com/influxdata/influxdb/client/v2"
@@ -10,15 +10,7 @@ const (
 	DATABASE = "test"
 )
 
-func main() {
-	httpClient := newHTTPClient()
-	defer httpClient.Close()
-
-	udpClient := newUDPClient()
-	defer udpClient.Close()
-}
-
-func newHTTPClient() client.Client {
+func NewHTTPClient() client.Client {
 	c, err := client.NewHTTPClient(client.HTTPConfig{
 		Addr: ADDR,
 		// Username: "username",
@@ -31,7 +23,7 @@ func newHTTPClient() client.Client {
 	return c
 }
 
-func newUDPClient() client.Client {
+func NewUDPClient() client.Client {
 	c, err := client.NewUDPClient(client.UDPConfig{
 		Addr: ADDR,
 	})
