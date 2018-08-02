@@ -14,4 +14,5 @@ func main() {
 	// database.DropDatabase(c)
 
 	write.WriteData(c)
+	write.BatchWriteData(c)
 }
